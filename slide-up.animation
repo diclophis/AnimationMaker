@@ -3,5 +3,6 @@
 }
 
 100% {
-  opacity: 0;
+  opacity: 1;
+  top: -100%;
 }

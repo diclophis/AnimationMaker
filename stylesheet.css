@@ -6,9 +6,11 @@
 @body-width: 512px;
 @body-height: 418px;
 @body-border: 4px solid gray;
-@introduction-fade-out-duration: 3s;
-@nfl_introduction-fade-out-delay: 3s;
-@copywrite_introduction-fade-out-delay: 6s;
+@introduction-fade-out-duration: 0.3s;
+@nfl_introduction-fade-out-delay: 0.3s;
+@copywrite_introduction-fade-out-delay: 0.6s;
+@city-slide-up-delay: 0.9s;
+@huddle-and-cheerleaders-slide-up-delay: 0.9s;
 
 .animation (...) { -webkit-animation: @arguments; -moz-animation: @arguments; animation: @arguments; }
 .forward-animation (...) { .animation(@arguments); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
@@ -18,11 +20,12 @@
 .centered-child { display: block; margin-left: auto; margin-right: auto; }
 
 * { margin: 0; padding: 0; }
-
-body { .centers-children; background-color: @body-background-color; width: @body-width; height: @body-height; border: @body-border; }
-
-div#introductions { position: relative; .centered-child; width: 33%; height: 33%; border: 1px solid blue; }
-div#introductions>div { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: contain; }
+body { margin: 5%; }
+div#main { .centers-children; background-color: @body-background-color; width: @body-width; height: @body-height; border: @body-border; overflow: hidden; }
+div#introductions { position: relative; .centered-child; width: 100%; height: 100%; }
+div#introductions>div { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: 100% 100%; background-repeat: no-repeat; }
 div#developer_introduction { .forward-animation(fade-out @introduction-fade-out-duration); background-image: url(developer_introduction.png); }
 div#nfl_introduction { .forward-animation(fade-out @introduction-fade-out-duration); .delayed(@nfl_introduction-fade-out-delay); opacity: 0.0; background-image: url(nfl_introduction.png); }
-div#copywrite_introduction { .forward-animation(fade-out @introduction-fade-out-duration); .delayed(@copywrite_introduction-fade-out-delay); opacity: 0.0; background-image: url(copywrite_introduction.png); }
+div#copywrite_introduction { .forward-animation(fade-out @introduction-fade-out-duration); .delayed(@copywrite_introduction-fade-out-delay); opacity: 0; background-image: url(copywrite_introduction.png); }
+div#introductions>div#city { height: 150%; .forward-animation(slide-up 4s); .delayed(@city-slide-up-delay); opacity: 0; background-image: url(city.png); }
+div#introductions>div#huddle_and_cheerleaders { top: 150%; .forward-animation(slide-up-100 4s); .delayed(@huddle-and-cheerleaders-slide-up-delay); opacity: 0; background-image: url(huddle_and_cheerleaders.png); }
