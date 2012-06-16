@@ -6,11 +6,13 @@
 @body-width: 512px;
 @body-height: 418px;
 @body-border: 4px solid gray;
-@introduction-fade-out-duration: 0.3s;
-@nfl_introduction-fade-out-delay: 0.3s;
-@copywrite_introduction-fade-out-delay: 0.6s;
-@city-slide-up-delay: 0.9s;
-@huddle-and-cheerleaders-slide-up-delay: 0.9s;
+@introduction-fade-out-duration: 1s;
+@nfl_introduction-fade-out-delay: 1s;
+@copywrite_introduction-fade-out-delay: 2s;
+@city-slide-up-duration: 2s;
+@city-slide-up-delay: 3s;
+@huddle-and-cheerleaders-slide-up-delay: 3s;
+@ready-blink-duration: 1s;
 
 .animation (...) { -webkit-animation: @arguments; -moz-animation: @arguments; animation: @arguments; }
 .forward-animation (...) { .animation(@arguments); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
@@ -27,5 +29,13 @@ div#introductions>div { position: absolute; top: 0; left: 0; width: 100%; height
 div#developer_introduction { .forward-animation(fade-out @introduction-fade-out-duration); background-image: url(developer_introduction.png); }
 div#nfl_introduction { .forward-animation(fade-out @introduction-fade-out-duration); .delayed(@nfl_introduction-fade-out-delay); opacity: 0.0; background-image: url(nfl_introduction.png); }
 div#copywrite_introduction { .forward-animation(fade-out @introduction-fade-out-duration); .delayed(@copywrite_introduction-fade-out-delay); opacity: 0; background-image: url(copywrite_introduction.png); }
-div#introductions>div#city { height: 150%; .forward-animation(slide-up 4s); .delayed(@city-slide-up-delay); opacity: 0; background-image: url(city.png); }
-div#introductions>div#huddle_and_cheerleaders { top: 150%; .forward-animation(slide-up-100 4s); .delayed(@huddle-and-cheerleaders-slide-up-delay); opacity: 0; background-image: url(huddle_and_cheerleaders.png); }
+div#introductions>div#city { height: 150%; .forward-animation(slide-up @city-slide-up-duration); .delayed(@city-slide-up-delay); opacity: 0; background-image: url(city.png); }
+div#introductions>div#huddle_and_cheerleaders { top: 150%; .forward-animation(slide-up-100 @city-slide-up-duration); .delayed(@huddle-and-cheerleaders-slide-up-delay); opacity: 0; background-image: url(huddle_and_cheerleaders.png); }
+div#introductions>div#ready { opacity: 0; .animation(100s ease 0s normal forwards fade-out); .centers-children; color: white; border: 1px solid red; }
+div#introductions>div#ready>p { font-size: 400%; font-weight: bold; font-family: sans-serif; .centered-child; text-align: center; height: 100%; line-height: @body-height; }
+div#introductions>div#ready>p>span { opacity: 0; }
+div#introductions>div#ready>p>span:nth-child(1) { .animation(1s 5s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(2) { .animation(1s 5.2s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(3) { .animation(1s 5.4s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(4) { .animation(1s 5.6s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(5) { .animation(1s 5.8s fade-in-out); }
