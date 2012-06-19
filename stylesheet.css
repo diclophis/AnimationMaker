@@ -6,13 +6,14 @@
 @body-width: 512px;
 @body-height: 418px;
 @body-border: 4px solid gray;
-@introduction-fade-out-duration: 1s;
-@nfl_introduction-fade-out-delay: 1s;
-@copywrite_introduction-fade-out-delay: 2s;
-@city-slide-up-duration: 2s;
-@city-slide-up-delay: 3s;
-@huddle-and-cheerleaders-slide-up-delay: 3s;
-@ready-blink-duration: 0.2s;
+@introduction-fade-out-duration: 3s;
+@nfl_introduction-fade-out-delay: 3s;
+@copywrite_introduction-fade-out-delay: 6s;
+@city-slide-up-duration: 5s;
+@city-slide-up-delay: 9s;
+@huddle-and-cheerleaders-slide-up-delay: 9s;
+@ready-blink-duration: 100s;
+@ready-blink-delay: 0s;
 
 .ready-font (...) { color: white; font-family: sans-serif; }
 
@@ -36,12 +37,12 @@ div#nfl_introduction { .forward-animation(fade-out @introduction-fade-out-durati
 div#copywrite_introduction { .forward-animation(fade-out @introduction-fade-out-duration); .delayed(@copywrite_introduction-fade-out-delay); opacity: 0; .copywrite-introduction-png; }
 div#introductions>div#city { height: 150%; .forward-animation(slide-up @city-slide-up-duration); .delayed(@city-slide-up-delay); opacity: 0; .city-png; }
 div#introductions>div#huddle_and_cheerleaders { top: 150%; .forward-animation(slide-up-100 @city-slide-up-duration); .delayed(@huddle-and-cheerleaders-slide-up-delay); opacity: 0; .huddle-and-cheerleaders-png; }
-div#introductions>div#ready { opacity: 0; .animation(100s ease 0s normal forwards fade-out); .centers-children; }
+div#introductions>div#ready { opacity: 0; .animation(@ready-blink-duration ease @ready-blink-delay normal forwards fade-out); .centers-children; }
 div#introductions>div#ready>p { font-size: 400%; .ready-font; .centered-child; text-align: center; height: 100%; line-height: @body-height; }
 div#introductions>div#ready>p>span { opacity: 0; }
-div#introductions>div#ready>p>span:nth-child(1) { .animation(1s 5s fade-in-out); }
-div#introductions>div#ready>p>span:nth-child(2) { .animation(1s 5.1s fade-in-out); }
-div#introductions>div#ready>p>span:nth-child(3) { .animation(1s 5.2s fade-in-out); }
-div#introductions>div#ready>p>span:nth-child(4) { .animation(1s 5.3s fade-in-out); }
-div#introductions>div#ready>p>span:nth-child(5) { .animation(1s 5.4s fade-in-out); }
-div#introductions>div#ready>p>span:nth-child(6) { .animation(1s 5.5s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(1) { .animation(1s 14.0s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(2) { .animation(1s 14.1s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(3) { .animation(1s 14.2s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(4) { .animation(1s 14.3s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(5) { .animation(1s 14.4s fade-in-out); }
+div#introductions>div#ready>p>span:nth-child(6) { .animation(1s 14.5s fade-in-out); }
